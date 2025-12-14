@@ -13,7 +13,11 @@ class Estacionamento:
 
 
         novo_carro = Carro(marca, modelo, cor, placa)
-        self.lista_carros.append(novo_carro)
+          if any(carro.placa == placa for carro in self.lista_carros):
+            print("Erro: Já existe um carro com essa placa no estacionamento.")
+            return
+        else:
+              self.lista_carros.append(novo_carro)
 
         print("Carro adicionado com sucesso!")
 
@@ -55,3 +59,4 @@ class Estacionamento:
                 return
 
         print("Carro não encontrado.")
+
